@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<select id="today"></select>
+    <script>
+         let dishe = [
+      {
+        day:0,
+        dishes:[
+          "Tikka",
+          "Briyani",
+          "Macroni",
+          "Karahi",
+          "Naan",
+          "Nihari"
+        ]
+      },
+      {
+        day:1,
+        dishes:[
+          "Haleem",
+          "Daal Maash",
+          "Bhindi",
+          "Kaddu",
+          "Shaami",
+          "Kheer"
+        ]
+      },
+      {
+        day:5,
+        dishes:[
+          "Gajar ka halwa",
+          "Daal Masoor",
+          "Ghobi",
+          "Pulao",
+          "Karahi",
+          "Aloo andey"
+        ]
+      },
+      {
+        day:4,
+        dishes:[
+          "Ferni",
+          "Zarda",
+          "Fish",
+          "Shnwari",
+          "Bengan",
+          "Kareley"
+        ]
+      },
+    ];
+    
+    let currentDate = new Date();
+    let index = currentDate.getDay()
+
+    dishe.find((menu)=>{
+        if(menu.day == index){
+            menu.dishes.forEach((dish)=>{
+                let opt = document.createElement("option")
+                opt.innerHTML = dish
+                today.appendChild(opt)
+            })
+        }
+    })
+
+    </script>
+</body>
+</html>

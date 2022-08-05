@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .file{
+            width: 150px;
+        }
+        .select{
+            border: 5px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="today"></div>
+</body>
+<script>
+        let files = [
+      {name:"1.jpeg"},
+      {name:"2.jpeg"},
+      {name:"3.jpeg"},
+      {name:"4.jpeg"}
+    ]
+    let selected ;
+    files.forEach((item ,index)=>{
+
+        let img= document.createElement('img')
+
+        img.src = item.name
+        
+        img.className = 'file'
+        
+        img.onclick = ()=>{
+        
+            if(selected){
+                selected.classList.remove('select')
+                
+            }
+            img.classList.add('select')
+            selected = img;
+            if(selected){
+
+                document.onkeydown = ()=>{
+                    
+                let start =  [...selected.parentNode.children].indexOf(selected)
+                
+                let allFiles = document.querySelectorAll('.file')
+            document.shiftKey = ()=>{
+                for(let i = start; i <= index; i++){
+                    allFiles.classList.add('select')
+                }
+                console.log(event.shiftKey)
+            }
+            }
+            }
+        }
+            today.appendChild(img)
+    })
+    
+    document.onkeydown = ()=>{
+       
+        if(selected && event.keyCode == 46){
+            selected.remove()
+        }
+    
+    }
+
+</script>
+</html>

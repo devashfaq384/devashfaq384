@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+         let game1= prompt("Game number 1")
+        let game2= prompt("Game number 2" )
+        let game3= prompt("Game number 3")
+        
+        let games = "I like to play badminton, Tayab likes to play cricket, Ali likes to play football"
+
+
+        for( let i = 0; i<games.length; i++){
+            if( games.slice(i, i+9) == "badminton"  ){
+                games = games.slice(0,i) + game1 + games.slice(i+9)
+            }
+            else if( games.slice(i, i+7) == "cricket"  ){
+                games = games.slice(0,i) + game2 + games.slice(i+7)
+            }
+            else if( games.slice(i, i+8) == "football"  ){
+                games = games.slice(0,i) + game3 + games.slice(i+8)
+            }
+        }
+
+        games = games.replace("badminton", game1)
+        games = games.replace("cricket", game2)
+        games = games.replace("football", game3)
+    for(let i = 0; i<games.length;i++)
+    {
+        if ( games.slice(i,i+9) == "badminton") {
+            games = games.slice(0,i) + game1 + games.slice(i+9)
+        }
+        else if (games.slice(i,i+7) == "cricket") {
+            games = games.slice(0,i) + game2 + games.slice(i+7)
+        } 
+        else if (games.slice(i,i+8) == "football") {
+            games = games.slice(0,i) + game3 + games.slice(i+8)
+        } 
+    }
+
+    </script>
+</body>
+</html>

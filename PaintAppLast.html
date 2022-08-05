@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="paper-full.min.js"></script>
+
+    <style>
+
+    body{
+        margin:0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+#oldDrawigs{
+    flex-grow:1;
+    border:1px solid green;
+}
+
+#drawingArea{
+    flex-grow: 5;
+    border:1px solid blue;
+}
+
+#drawingBox{
+    display:flex;
+    width: 100vw;
+    height: 100vh;
+    border:1px solid red;
+}
+
+.drawingBox{
+    height: 50px;
+    background-color: orange;
+    margin:5px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 50px;
+    color:white;    
+}
+
+#newDrawingBTN{
+    position: absolute;
+    bottom:50px;
+    right:50px;
+}
+
+
+    </style>
+</head>
+<body>
+
+    <button onclick="freshDrawing()" id="newDrawingBTN">New Drawing</button>
+    <button onclick="saveDrawing()" id="saveDrawingBTN">Save Drawing</button>
+    <div id="drawingBox">
+        
+        
+
+        <div id="oldDrawigs"></div>
+        <div id="drawingArea">
+
+            <div onclick="drawShape()" id="panelPatti">
+                    <button>Circle</button>
+                    <button>Rectangle</button>
+            </div>
+
+            <canvas id="appCanvas"></canvas>
+        </div>
+
+    </div>
+
+    <script>
+        
+        appCanvas.setAttribute("width", drawingArea.offsetWidth-100);
+        appCanvas.setAttribute("height", drawingArea.offsetHeight-100);
+
+        paper.setup(appCanvas);
+
+
+       
+
+
+        function drawShape(){
+
+            var shape;
+            switch(event.target.innerText){
+
+
+                case "Circle":
+                    shape = new paper.Path.Circle(new paper.Point(Math.random() * 500, Math.random() * 500), 30);
+                    shape.strokeColor = 'black';
+                break;
+
+                case "Rectangle":
+                    var rectangle = new paper.Rectangle(new paper.Point(Math.random() * 500, Math.random() * 500), new paper.Size(60, 60));
+                    var shape = new paper.Path.Rectangle(rectangle);
+                    shape.strokeColor = 'black';
+                break;
+
+
+            }
+
+            shape.style.fillColor = "red";
+
+            shape.onMouseDrag = function(event) {
+                shape.position.x += event.delta.x;
+                shape.position.y += event.delta.y;
+            }
+            
+
+        }
+
+        let puraniDrawings = JSON.parse(localStorage.getItem("drawings") || "[]");
+
+            function saveDrawing(){
+
+                let name =  prompt("drawing title btyen");
+
+                let drawing = {
+                    title:name,
+                    data:paper.project.exportJSON()
+                }
+
+                puraniDrawings.push(drawing);
+                localStorage.setItem("drawings", JSON.stringify(puraniDrawings))
+
+
+                showPuraniDrawings();
+                
+
+            }
+
+        function freshDrawing(){
+
+
+
+        }
+
+
+        showPuraniDrawings();
+
+        function showPuraniDrawings(){
+
+
+            oldDrawigs.innerHTML = '';
+
+            puraniDrawings.forEach((drawingObj)=>{
+
+                let drawingBox =  document.createElement('div');
+                drawingBox.className = "drawingBox";
+                drawingBox.innerText = drawingObj.title
+                drawingBox.onclick =  ()=>{
+
+                    paper.project.importJSON(drawingObj.data);
+
+                }
+
+                oldDrawigs.appendChild(drawingBox);
+
+            })
+
+        }
+
+
+    </script>
+    
+</body>
+</html>

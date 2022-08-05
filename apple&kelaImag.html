@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <tr>
+            <th>Apple</th>
+            <th>Banana</th>
+        </tr>
+        <tr>
+            <td id="appleQty"></td>
+            <td id="bananaQty"></td>
+        </tr>
+        <tr>
+            <th>Apple Del</th>
+            <th>Banana Del</th>
+        </tr>
+        <tr>
+            <td id="appleQtyD"></td>
+            <td id="bananaQtyD"></td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    
+    
+<button onclick="app('2.jpeg')">apple</button>
+<button onclick="app('1.jpeg')">kela</button>
+<div id="some"></div>
+    <script>
+        let apple = 0;
+    let banana = 0;
+    let value =0;
+    let valu = 0;
+    function app(data){        
+        if(data.includes('1')){
+                apple += 1;
+                appleQty.innerText = apple;
+            }else if(data.includes('2')){
+                banana += 1;
+                bananaQty.innerText = banana;
+            }
+        let img = document.createElement("img")
+        img.src = data
+
+        img.onclick =()=>{
+              img.remove()
+            if(data.includes('1')){
+                apple -= 1;
+                appleQty.innerText = apple;
+                value += 1
+                appleQtyD.innerHTML = value;
+            }else if(data.includes('2')){
+                    banana -= 1;
+                    bananaQty.innerText = banana;
+                    valu += 1
+                    bananaQtyD.innerHTML = valu;
+            }
+        }
+        some.appendChild(img)
+    }
+    </script>
+</body>
+</html>

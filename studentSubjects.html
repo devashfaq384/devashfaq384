@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let data = [
+        {
+            name:"ali",
+            subject:[
+                {
+                    subj:"physics",
+                    marks:30
+                },
+                {
+                    subj:"math",
+                    marks:60
+                }
+            ]
+        },
+        {
+            name:"ahmed",
+            subject:[
+                {
+                    subj:"physics",
+                    marks:30
+                },
+                {
+                    subj:"bio",
+                    marks:55
+                }
+            ]           
+        },
+        {
+            name:"sultan",
+            subject:[
+                {
+                    subj:"chemistry",
+                    marks:30
+                },
+                {
+                    subj:"bio",
+                    marks:40
+                }
+            ]
+        }
+    ]
+
+
+    // filter , foreach , find , some , every           // array methods
+
+    let user = prompt("Enter the subject name")
+
+
+    let muzammal = data.filter((object)=>{
+       
+
+        return identity = object.subject.find((item)=>{
+            if(item.subj == user && item.marks >= 30){
+                return true
+            }
+        })
+    })
+
+    if (muzammal == false){
+        alert( user  + " subject is not available")
+    }
+    else{
+        console.log(muzammal)
+    }
+
+    // console.log(muzammal)
+    
+    // if(muzammal == false){
+    //     alert("This sunbject is not available")
+    // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // let nawa = data.filter((item)=>{
+
+    //     let khula = item.subject.find((subjects)=>{
+    //         if(subjects.name=="math" && subjects.marks > 50){
+    //             return true;
+    //         }
+    //     })
+    //     if(khula){
+    //         return true
+    //     }else{
+    //         return false
+    //     }
+    // })
+
+
+    // let studentMilgya =  students.filter((student)=>{
+
+    // let subjectWalaMilgya =  student.subjects.find((subject)=>{
+    //         if(subject.name == "bio" && subject.marks > 50){
+    //             return true;
+    //         }
+    //     });
+
+    //         if(subjectWalaMilgya ){
+    //             return true;
+    //         }else{
+    //             return false;
+    //         }
+
+    //     });
+    
+    </script>
+</body>
+</html>

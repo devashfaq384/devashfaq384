@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onmousemove="colorChangeKaro()">
+    
+    <script>
+            function colorChangeKaro (){
+        let horizontal = innerWidth / 3;
+        let veritcal = innerHeight /  2;
+
+        if(event.clientX < horizontal){
+            if(event.clientY > veritcal){
+                document.body.style.backgroundColor = "red";
+            }
+            else{
+                document.body.style.backgroundColor = "blue";
+            }
+        }
+        else if(event.clientX < (horizontal*2)){
+
+            if(event.clientY > veritcal){
+                document.body.style.backgroundColor = "lightgreen";
+            }
+            else{
+                document.body.style.backgroundColor = "lightcyan";
+            }
+        }
+        else if(event.clientX < (horizontal * 3)){
+            if(event.clientY > veritcal){
+                document.body.style.backgroundColor = "purple";
+            }
+            else{
+                document.body.style.backgroundColor = "yellow";
+            }
+
+        }
+    }
+    </script>
+</body>
+</html>

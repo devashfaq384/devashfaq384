@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div>
+          <input id="nameBox" type="text" placeholder="Name">
+        </div>
+        <div>
+          <input id="cityBox" type="text" placeholder="City">
+        </div>
+        <button onclick="saveUser()">Create User</button>
+      </form>
+    
+      <table border="1" id="userTable"></table>
+
+    <script>
+         let users =[]
+    function saveUser(){
+        event.preventDefault()
+
+        if(userAlreadyH(nameBox.value)){
+            return alert ("This user already exsits")
+        }
+        let newUser = {
+            name : nameBox.value,
+            city : cityBox.value
+        }
+        // event.target.reset();
+        users.push(newUser);
+        updateTable();
+    }
+
+    function userAlreadyH(name){
+        let userH = users.find(user=>user.name.toLowerCase() == name.toLowerCase())
+        return userH
+    }
+
+    function updateTable(){
+         userTable.innerHTML = '';
+        users.forEach((user , index)=>{
+            let tr = document.createElement("tr")
+            let name = document.createElement("td")
+            name.innerHTML = user.name;
+            
+            let city = document.createElement("td")
+            city.innerHTML = user.city
+
+            let del = document.createElement("td")
+            let btn = document.createElement("button")
+            btn.innerHTML = "Delete"
+            del.appendChild(btn)
+
+            btn.onclick = ()=>{
+                users.splice(index , 1  )
+                
+                updateTable();
+            }
+
+            let edit = document.createElement("td")
+            let editBtn = document.createElement("button")
+            editBtn.innerHTML = "Edit"
+            edit.appendChild(editBtn)
+
+            editBtn.onclick = ()=>{
+                users[index].name = prompt("")
+                updateTable()
+            }
+
+            tr.append(name , city ,del , edit)
+
+            userTable.appendChild(tr)
+
+        })
+    }
+    </script>
+</body>
+</html>

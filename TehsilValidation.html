@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+         let dataDis = [
+        {
+            district:"FSD",
+            tehsils:[
+                "jaranwala", "FSD city", "jhumra"
+            ]
+            
+        },
+        {
+            district:"TOba",
+            tehsils:[
+                "Kamalia", "Peer Mehal", "Shorkot"
+            ]
+            
+        }
+    ];
+
+    let data = [
+        {
+            name:"ali",
+            city:"FSD",
+            tehsil:"jhumra"
+        },
+        {
+            name:"rameez",
+            city:"TOba",
+            tehsil:"Shorkot"
+        },
+        {
+            name:"ali",
+            city:"FSD",
+            tehsil:"Kamalia"
+        }
+    ];
+
+
+    let details = data.filter((student)=>{
+        
+    })
+
+//     let allDetail = data.filter((student)=>{
+//         return dataDis.filter((districtKaData)=>{
+//         if(districtKaData.district == student.city && districtKaData.tehsils.includes(student.tehsil)){
+//             return true;
+//         }
+    
+//     });
+    
+// });
+// let correctArea =  data.filter((student)=>{
+
+//     return  districtsData.find((districtKaData)=>{
+//         if(districtKaData.district == student.city && districtKaData.tehsils.indexOf(student.tehsil) != -1){
+//             return true;
+//         }
+//     });
+    </script>
+</body>
+</html>

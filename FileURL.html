@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        #meraCanvas{
+            /* width:500px;            
+            height: 333px;  */
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+ <input multiple id="someData" type="file" onchange="updateVideo()" />
+    <!-- graphcis  -->
+    <!-- svg  -->
+    <!-- <canvas></canvas> -->
+    <canvas width="500" height="333" id="meraCanvas"></canvas>
+    <script>
+    function getTag(file){
+        let tag;
+
+        switch(true){
+
+            case file.type.includes('image'):
+            tag = document.createElement('img');
+            break;
+
+            case file.type.includes('video'):
+            tag = document.createElement('video');
+            tag.controls = true;
+            break;
+
+            case file.type.includes('application'):
+            tag = document.createElement('iframe');
+            break;
+        }
+
+        tag.src = URL.createObjectURL(file);
+        document.body.append(tag)
+    }
+        function updateVideo(){
+            // let hamariFile = someData.files[0];
+            // console.log(hamariFile);
+        for(let file of someData.files){
+           getTag( file)          
+        }  
+    }    
+    </script>
+    
+</body>
+</html>

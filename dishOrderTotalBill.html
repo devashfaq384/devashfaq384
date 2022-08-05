@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table  border="1">
+        <tbody id="mainTable">
+
+        </tbody>
+        <tr>
+            <td>Total</td>
+            <td id="totalBox"></td>
+            <td id="netBox"></td>
+        </tr>
+    </table>
+    <button onclick="getBill()">Get Bill</button>
+
+    
+    <script>
+            let dishes = [
+        {
+            name:"biryani",
+            price:250
+        },
+        {
+            name:"qorma",
+            price:1200
+        },
+        {
+            name:"Barb-q",
+            price:200
+        },
+        {
+            name:"Mutton Karahi",
+            price:2500
+        },
+        {
+            name:"Daal Maash",
+            price:120
+        },
+        {
+            name:"Jalfrezi",
+            price:650
+        }
+    ]
+    dishes.forEach((dish)=>{
+        let row = document.createElement("tr")
+    
+        let name = document.createElement("td")
+        name.innerHTML  = dish.name
+    
+        let price = document.createElement("td")
+        price.innerHTML= dish.price
+        
+        let input = document.createElement("input")
+        input.type = "checkbox"
+        input.className = "dishWalaCheck"
+    
+        let DishBox = document.createElement("td")
+        DishBox.appendChild(input)
+        
+        let salad = document.createElement("input")
+        salad.type = "checkbox"
+    
+        let saladBox = document.createElement("td")
+        saladBox.appendChild(salad)
+    
+        
+        let Qty = document.createElement("input")
+        Qty.type = "number"
+    
+        let QtyBox = document.createElement("td")
+        QtyBox.appendChild(Qty)
+    
+    
+        
+        row.append(name, price, DishBox ,QtyBox  ,saladBox )
+    
+        mainTable.appendChild(row)
+    })
+        function getBill(){
+    
+            let total = 0;
+    
+            let orderdishes = document.querySelectorAll('.dishWalaCheck:checked');
+    
+            orderdishes.forEach((dish)=>{
+    
+                let qimat = +dish.parentNode.previousElementSibling.innerText ; 
+
+                let numbers = dish.parentNode.nextElementSibling.children[0].value || 1;
+
+                let saladQimat = dish.parentNode.nextElementSibling.nextElementSibling.children[0].checked ? 30 : 0
+
+                total += (qimat * Math.abs(numbers)) + (numbers * saladQimat)
+    
+            });
+    
+            totalBox.innerText = total;
+    
+            if(total > 2500){
+                netBox.innerHTML = total * 0.9
+            }else{
+                netBox.innerText = total;
+            }
+    
+            console.log(total);
+        }
+    </script>
+</body>
+</html>

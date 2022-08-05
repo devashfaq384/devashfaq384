@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<button onclick="buyFruit()">Buy Fruits</button>
+
+    <script>
+           
+let fruitBoxes = [
+        {
+            apple:50,
+            orange:50,
+            bananas:50
+        },
+        {
+            pineapple:50,    
+            orange:50,
+            cherry:50
+        },
+        {
+            grapes:50,    
+            apple:50,
+            mangoes:50
+        },
+        {
+            watermelon:50,
+            peach:50,
+            cherry:50
+        }
+    ];
+
+    function buyFruit(){
+        let fruitName = prompt("Enter the fruit name")
+        
+        let fruitNotAvail = true;
+        
+        for(let box of fruitBoxes){
+            if(fruitName in box){
+               fruitNotAvail = false
+            }
+        }
+        if(fruitNotAvail == true){
+            return alert("Fruit is not available in our stock")
+        }
+        
+        let Qty = +prompt("Enter the fruit quantity")
+
+        let totalAvaiable = 0;
+
+        fruitBoxes.forEach((box)=>{
+        
+            if(fruitName in box){
+                totalAvaiable += box[fruitName]
+            }
+        })
+        if(Qty > totalAvaiable){
+            return alert("Bss "+ totalAvaiable +" Fruits hain")
+        }
+        for(let box of fruitBoxes){
+            if(fruitName in box){
+                if(Qty <= box[fruitName]){
+                    
+                    box[fruitName] -= Qty
+                    break;
+
+                }
+                else{   
+                    Qty -= box[fruitName]
+                    box[fruitName] = 0;
+                }
+            }
+        }
+    }
+
+    // function buyFruit(){
+
+
+    //     let fruitName = prompt("Fruit name btyen");
+    //     let fruitQty= +prompt("Kinna fruit?");
+
+    //     let totalAvaiable = 0;
+
+    //     fruitBoxes.forEach((pety)=>{
+
+    //         if(fruitName in pety){
+    //             totalAvaiable += pety[fruitName]    
+    //         }
+    //     })
+
+    //     if(fruitQty > totalAvaiable){
+    //         return alert("fruit nahi h "+(totalAvaiable));
+    //     }
+
+    //     for(let pety of fruitBoxes){
+            
+    //         if(fruitName in pety){
+
+    //             if(fruitQty <= pety[fruitName]){
+    //                 pety[fruitName] -= fruitQty;         
+    //                 break;
+    //             }else{
+    //                 fruitQty -= pety[fruitName];    
+    //                 // 45
+    //                 pety[fruitName] = 0;
+    //             }
+    //         }
+    //     }
+    // }
+        // let data = {
+        //     city:"FSD",    
+        //     name:"khurram"
+        // }
+
+        // for(let d in data){
+        //     console.log(data[d]);    
+        // }
+
+
+        // in ka operator use hoskata agar 
+        // object m check krna kay koi key exist
+        // krti ya nahi
+
+        // let prop = prompt("property btyen");
+
+        // console.log(data[prop]);
+
+    </script>
+</body>
+</html>

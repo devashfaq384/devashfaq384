@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* #meraCanvas{
+            width:100%;            
+            height: auto; 
+            border:1px solid red;
+        } */
+        #videoPlayer{
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+
+</head>
+<body>
+
+ <input id="someData" type="file" onchange="updateVideo()" />
+
+ <div class="main"></div>
+    <img id="videoPlayer" src="2.jpeg" alt="">
+    <!-- <iframe id="videoPlayer" src="" frameborder="0"></iframe> -->
+
+    <!-- <video width="600" height="400" id="videoPlayer" controls></video> -->
+    
+    <!-- graphcis  -->
+    <!-- svg  -->
+    <!-- <canvas></canvas> -->
+
+    
+    <canvas id="meraCanvas"></canvas>
+
+    <script>
+
+// updateVideo();
+
+
+function updateVideo(){
+           let pen = meraCanvas.getContext('2d');
+    
+              videoPlayer.onloadedmetadata = ()=>{
+       
+               meraCanvas.style.width = videoPlayer.videoWidth + 'px';
+               meraCanvas.style.height = videoPlayer.videoHeight + 'px';
+       
+              }
+       
+       
+              setInterval(()=>{
+       
+                   pen.drawImage(videoPlayer, 0, 0,videoPlayer.width, videoPlayer.height,0,0,meraCanvas.width, meraCanvas.height);
+           
+               }, 1);
+             
+              
+           // let hamariFile = someData.files[0];
+        // console.log(hamariFile)
+        // console.log(hamariFile.type)
+        // let name = hamariFile.type            
+        // let meraPath =  URL.createObjectURL(hamariFile);
+     
+        // videoPlayer.src = meraPath;
+     
+    
+    }
+            // console.log(hamariFile.name)
+            // if(hamariFile.name)
+
+
+
+
+
+        // }
+
+
+
+        
+    </script>
+    
+</body>
+</html>

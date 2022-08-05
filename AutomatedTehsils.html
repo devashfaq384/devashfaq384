@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <select onchange="showTehsils()"  id="disrtictSelector">
+        <option value="">Select City</option>
+       </select>
+     
+       <select id="tehsilSelector">
+         <option disabled value="">Select Tehsil</option>
+       </select>
+       <button onclick="addTehsil()">Tehsil</button>
+
+
+    <script>
+        let data = [
+      {
+        name:"Faisalabad",
+        tehsils:[
+          "FSD city",
+          "jaranwala",
+          "chal jhumra"
+        ]
+      },
+      {
+        name:"Lahore",
+        tehsils:[
+          "Model Town",
+          "Shaadra",
+          "Raiwand"
+        ]
+      },
+      {
+        name:"Toba",
+        tehsils:[
+          "Kamalia",
+          "Gojra",
+          "Peer Mehal"
+        ]
+      }
+    ]
+    function addTehsil(){
+        let newTehsil = prompt("Enter the tehsil name")
+        let selectDistrict = disrtictSelector.value;
+        
+        let mili = data.find((district)=>{
+            if(district.name == selectDistrict){
+                return true;
+            }
+        })
+        mili.tehsils.push(newTehsil);
+        UpdateTehsil(mili)
+    }
+    function UpdateTehsil(mili){
+        tehsilSelector.innerHTML = '<option disabled>Select Tehsils</option>'
+        mili.tehsils.forEach((tehsil)=>{
+            let nawa = document.createElement('option')
+            nawa.innerHTML = tehsil
+            tehsilSelector.appendChild(nawa)
+        })
+    }
+    function showTehsils(){
+        let selectDistrict = disrtictSelector.value;
+        
+        let mili = data.find((district)=>{
+            if(district.name == selectDistrict){
+                return true;
+            }
+        })
+
+        tehsilSelector.innerHTML = '<option disabled>Select Tehsils</option>'
+        mili.tehsils.forEach((tehsil)=>{
+            let nawa = document.createElement('option')
+            nawa.innerHTML = tehsil
+            tehsilSelector.appendChild(nawa)
+        })
+    }
+    data.forEach((district)=>{
+        let el = document.createElement('option')
+        el.innerHTML = district.name
+        disrtictSelector.appendChild(el)
+    })
+
+    </script>
+</body>
+</html>

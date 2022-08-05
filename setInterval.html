@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="0.jpeg" id="image" alt="" style="position: absolute; width: 100px;">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <button onclick="move('left')">Left</button>
+      <button onclick="move('right')">Right</button>
+
+    <script>
+          let key ;
+
+    function move(value){
+        clearInterval(key)
+
+         key = setInterval(()=>{
+           image.style.left = ( value == "left" ? image.offsetLeft - 1 : image.offsetLeft + 1 )+ "px";
+            image.style.left = (image.offsetLeft + 1) + "px"
+
+            clearInterval(key);
+                key  = setInterval(()=>{
+                truck.style.left = (dir == "left" ? truck.offsetLeft - 1 : truck.offsetLeft + 1) + 'px';
+        },10)
+    })
+}
+    </script>
+</body>
+</html>

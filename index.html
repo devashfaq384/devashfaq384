@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <select id="menu"></select>
+
+    <script>
+          let dish = [
+      {
+        day:0,
+        dishes:[
+          "Tikka",
+          "Briyani",
+          "Macroni",
+          "Karahi",
+          "Naan",
+          "Nihari"
+        ]
+      },
+      {
+        day:1,
+        dishes:[
+          "Haleem",
+          "Daal Maash",
+          "Bhindi",
+          "Kaddu",
+          "Shaami",
+          "Kheer"
+        ]
+      },
+      {
+        day:2,
+        dishes:[
+          "Gajar ka halwa",
+          "Daal Masoor",
+          "Ghobi",
+          "Pulao",
+          "Karahi",
+          "Aloo andey"
+        ]
+      },
+      {
+        day:3,
+        dishes:[
+          "Ferni",
+          "Zarda",
+          "Fish",
+          "Shnwari",
+          "Bengan",
+          "Kareley"
+        ]
+      },
+      {
+        day:4,
+        dishes:[
+          "Kulfa",
+          "Mithay Chawal",
+          "Machi",
+          "Pathana da khana",
+          "Wataoon",
+          "Kheera",
+          "Mera putr hera"
+        ]
+      },
+    ];
+
+    let pro =  prompt().trim()
+
+    let dayIndex = getName(pro)
+    
+    function getName(dayName){
+    
+      switch(dayName){
+        case "sunday":
+          return 0
+        case "monday":
+          return 1
+        case "tuesday":
+          return 2
+        case "wednesday":
+          return 3
+        case "thursday":
+          return 4    
+      }
+    }
+    
+    
+    dish.find((item)=>{
+
+      if(item.day == dayIndex){
+
+        item.dishes.forEach((opt)=>{
+
+          let option = document.createElement("option")
+
+          option.innerHTML = opt
+
+          menu.appendChild(option)
+
+        })
+      }
+    })
+    // let today = new Date()
+    // let day = today.getDay()
+
+    // let data = [1,2,3,4,5]
+    
+    // let c = data.includes(15)
+    
+    // console.log(c)
+    
+    
+    
+    // dish.find((object)=>{
+    //     if(object.day == day ){
+    //         object.dishes.forEach((item)=>{
+    //             let li = document.createElement("option")
+    //             li.innerHTML = item
+    //             menu.appendChild(li)
+    //         });
+    //     };
+    // });
+    
+    // dish.find((object)=>{
+    //   if(object.day == day){
+    //     object.dishes.forEach((item)=>{
+    //       let option = document.createElement("option")
+    //       option.innerHTML = item
+    //       menu.appendChild(option)
+    //     })
+    //   }
+    // })
+    </script>
+</body>
+</html>
