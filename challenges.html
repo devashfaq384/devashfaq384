@@ -163,9 +163,200 @@
     // b.join('')
 
 
-    // function app(){
+    //Return the number of negative values in array ====================================
+    // let arr = [1,-2,3,-4,-5,6,-2]
+    // let negative = []
+    // arr.forEach((num)=>{
+    //     if(num < 0){
+    //         negative.push(num) 
+    //     }
+    // })
+    // console.log(negative.length)
 
+    // Return the last nth values of an array ==============================
+    // let arr = [1,2,3,4,5,6,7,9,7]
+    // console.log( arr.splice( -3 ))
+    // 2nd MEthod ===================
+    // for(let i =  arr.length ; i >= arr.length-3 ; i-- ){
+    //     console.log(arr[i])
     // }
+
+
+    // Remove the selected same numbers from array  ===========================
+
+    // let arr = [1, 2,2, 33, 3, 3, 4, 5, 6, 6, 6, 7]
+    // let value = 2;
+
+    // const result = arr.filter((x)=>{
+    //     console.log( x !== value);
+    // });
+
+    // console.log(result);
+
+    // Check if all array elements are equal =================================== 
+
+    // let arr = [1, 1, 1, 1, 1]
+
+    // arr.every((v) => {
+    //   console.log(  v === arr[0] )
+    // })
+
+    // 2nd Method ========================
+
+    // let arr = [1, 1, 1, 1, 1]
+
+    // function myFunction( arr ) {
+    //   return new Set(arr).size === 1
+    // }
+    // console.log(myFunction(arr))
+
+
+    // return an array with the numbers sorted in descending order ===================================
+
+    // let arr = [1,3,4,2]
+    // let rev = arr.sort().reverse()
+    // console.log(rev)
+    // 2nd Method ======================
+    // return arr.sort((a, b) => b - a)
+
+
+    // Return the sum of numbers of an array =======================================
+
+    // let a = [1, 2, 3, 4]
+    // let sum =  a.reduce((p, n) => {
+    //     return p + n
+    // })
+
+    // console.log(sum)
+
+    // Return the average of numbers of an array ===================================================
+
+    // let arr = [8,2,5,5]
+
+    // let avg = arr.reduce((first , values , index , array)=>{
+    //     let total = first + values;
+    //     if(index == array.length-1){
+    //         return total/array.length
+    //     }
+    //     return total;
+    // })
+    // console.log(avg)
+
+    // 2nd Method ============================
+
+    // let arr = [8,2,5,5]
+    // function app(arr){
+    //     return arr.reduce((acc, cur) => acc + cur, 0) / arr.length
+    // }
+    // console.log(app(arr))
+
+    // Return the longer string in the array of strings=====================================================
+
+    // let arr =['help' , 'its']
+
+    // let val = arr.reduce((first , next)=>{
+    //     if(first.length < next.length){
+    //         return next
+    //     }else{
+    //         return first
+    //     }
+    // })
+    // console.log(val)
+
+    // 2nd Method ==========================
+
+    // let arr = ['help' , 'me']
+    // function app(arr){
+    //     return arr.reduce((a, b) => a.length <= b.length ? b : a
+    // )}
+    // console.log(app(arr))
+
+
+    // Convert the multiple arrays into a single array ===========================================
+
+    // let arrays = [[1,2,3,4],['a','b','c']]
+
+    // let c = arrays.flat();
+    // console.log(c)
+
+
+    // Sort the array having objects in it ascending order ==============================================
+
+    // let arr = [{a:2,b:10},{a:5,b:4}]
+    // let a = [{a:1,b:7},{a:2,b:1}]
+
+    // console.log(arr.reverse())
+    // console.log(a.reverse())
+
+    // Merge two arrays and remove duplicate values form it and also apply sort() function====================================================
+
+    // let a = ["Ashfaq" , "Zhmad"]
+    // let b = ["Ali" , "Zhmad"]
+
+    // let merged = a.concat(b)
+    // let arr = merged.filter((item , pos)=>{
+    //     return merged.indexOf(item) === pos
+    // })
+    // console.log(arr.sort())
+
+
+    // Sum up all array elements with a value greater than variable (b) ===========================================
+
+    // let arr = [ 1 , 2 , 3 , 4]
+
+    // let total = 0; 
+
+    // arr.filter((x)=>{
+
+    //     let value = 2;
+    //       if( x > value){
+    //             return total += x 
+    //       }
+    //     return total;
+    // });
+    // console.log(total)
+
+    //write the number form min to max number / create the range of number min to max============================
+    // let MIN = 5;
+    // let MAX = 14;
+
+    // console.log(
+    //     Array.from(
+    //     {length:MAX-MIN+1},
+    //     (v,k)=>k+MIN
+    //     )
+    // )
+
+    // Write a function that takes an array of strings as argument ================================================
+    // Group those strings by their first letter================================================
+    // Return an object that contains properties with keys representing first letters===============================
+    // let arr = ["Ali", "Al", "Bita"]
+    // const getNewObj = (arr) => {
+    //     const result = {};
+    //     for (let i = 0; i < arr.length; i++) {
+    //         const item = arr[i];
+    //         const firstLetter = item[0]
+    //         if (!result[firstLetter]) {
+    //             result[firstLetter] = [];
+    //         }
+
+    //         if (result[firstLetter].indexOf(item) < 0) {
+    //             result[firstLetter].push(item);
+    //         }
+    //     }
+    //     return result;
+    // }
+    // console.log(getNewObj(arr))
+
+    // Get every nth element of array ==========================================================
+  
+    // let oldArr = [1, 2, 3, 4,5, 6, 7, 8, 9,10]
+    // let nth = 3
+    // newArr = oldArr.filter(function (value, index, Arr) {
+    //     return (index  % nth == 0);
+    // });
+    // console.log(newArr)
+
 
 
 </script>
