@@ -1,0 +1,242 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fruita{
+            width: 100px;
+        }
+        #id{
+            background-color: rgb(211, 151, 151);
+        }
+        .main{
+            position: absolute;
+        }
+        
+        #main div{
+            display: inline-block;
+            position: relative;
+            top: 20px;
+            left: 20px;
+        }
+        .abc{
+            background-color: red;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ol id="ali">
+
+    </ol>
+    <!-- <table id="some" border="1" ></table> -->
+    <div id="main">
+
+    </div>
+    <!-- <button onclick="color()">click</button> -->
+
+    <header id="header">
+        <ul class="list">
+            <li>Home</li>
+            <li>About</li>
+            <li>Contact</li>
+        </ul>
+        <ul class="list">
+            <li>Ali</li>
+            <li>Haider</li>
+            <li>Ghulam Abbas</li>
+        </ul>
+    </header>
+
+
+</body>
+<script>
+    // function color(){
+    //     let tag = document.createElement('div')
+    //     let colors = [Math.round(Math.random()*256 ),Math.round(Math.random()*256 ),Math.round(Math.random()*256 )]
+    //     tag.style.backgroundColor = `rgb(${colors})`
+    //     tag.style.width = "100px"
+    //     tag.style.height = '100px'
+    //     tag.style.margin = '20px 0 0 20px'
+    //     console.log(colors)
+    //     main.appendChild(tag)
+    // }    
+    // USE setAttribute('id / class' , ' id name / class name ') to change the value of the attribute 
+    // To delete the attribute use the removeAttribute()=====
+
+    // Query selector , and querySelectorAll ===============================================
+    // let select = document.querySelector('#header .list' )
+    // let selector = document.querySelectorAll('#header .list' )
+    // console.log(select , selector)
+
+
+    // Class List and ClassName ============================================
+    
+    // document.querySelector('#header').className = 'abc'
+    // to add a class  =============================================
+    // document.querySelector('#header').classList.add('abc', 'xyz')\
+    // to remove a class ==============================================
+    // document.querySelector('#header').classList.remove('abc', 'xyz')
+    // This returns an array of multiple classes
+    // let clas = document.querySelector('#header').classList
+    // console.log(clas)
+
+
+
+    // EventListener method ================================================================================
+    
+    // document.getElementById('id name ').addEventListener('evnet name without typing on eg. onclick = click ' , "name of the function you want to add " )
+
+    
+    // header.addEventListener('onclick' , function abc(){
+    //     header.removeEventListener('mouseleave' ,app())
+    // })
+    
+    
+    // header.addEventListener('dblclick' , function app (){
+    //     this.style.backgroundColor = "blue"
+    // })
+    
+    
+    // Class list methods ====================================================================
+    // classList.add() is used to add the multiple classes 
+    // classList.remove() is used  delete the multiple classes 
+    // to know the length of classes we paste a word length e.g
+    // classList.length
+
+    // toggle means when click one time class will added and when we click second time class will removed
+
+    // header.addEventListener('click' , function app (){
+    //     this.classList.toggle("blue")
+    // })
+    // classList.item(index) is used to show the class at the parameter index 
+
+    // classList.contains('name of the class') return true if class exists if not exists return false
+
+    // DOM tag selection methods =======================================================
+
+    // Both perform the same thing select the parent element  // parentNode return null if there is no parent element
+    // parentElement  
+    // parentNode
+
+    // this method it used to write all the inner divs in a mian div by createing an array 
+    // mean we can select a child using index
+    // children
+    // childNodes ====== it return all the single by single tag in an array
+
+    // this method gives only the first and last child of the selected element 
+    // firstElementChild
+    // lastElementChild
+    // firstChild
+    // lastChild
+
+
+    // Sibling methods ======================================
+    // nextSibling will select the next tag of the present tag  it counts the enter space an element and commeteed tags
+    // previousSibling will select the previous tag of the present tag it counts the enter space element and commeteed tags
+    
+    // nextElementSibling  it is opposite to upper properties
+    // previousElementSibling it is opposite to upper properties
+
+
+    // appendChild and replaceChild methods ===========================================
+
+    // oldElement = target the element you want to replace
+    // replaceChild(newElement  , oldElement)
+
+
+    // CloneNode =======================================
+
+    // let target = target the element you want to copy 
+    // var copy = target.cloneNode(false  , true)
+    // false = copy the tag atrributes and it's name  /  true = tag , attribute and it's value also
+    // console.log(copy)
+
+
+
+
+    // Contains method =======================
+    // it used to check a class or id into the child elements of a parent it returns value in true / false
+    // behaves like data.find() loop
+
+    // let find = parentElement.contains(targeted element)
+
+
+    // hasAttribute ====================================
+
+    // it searches an attribute in  a targeted tag 
+    // let at = target.hasAttribute('class')
+
+    // hasChildNodes ========================================
+
+    // if the tag have some attributes it will return true if not then return false 
+    // let at = target.hasChilNodes()
+
+    
+    
+    
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    // let data = [
+        //         "watermelon",
+        //         "apple",
+        //         "banana",
+        //         "cherry",
+        //         "mango"
+    //     ]
+    // data.forEach((fruit, index)=>{
+        //     // let th = document.createElement("th")
+        //     // th.innerHTML = fruit[0]
+
+        //     let tr = document.createElement("tr");
+
+        //     let nameTD = document.createElement("td");
+        //     nameTD.innerText =fruit;
+            
+
+        //     let imgTD = document.createElement("td");
+
+        //     let img = document.createElement('img');
+        //     img.src = index+".jpeg";
+        //     img.className = "fruita";
+
+        //     imgTD.appendChild(img);
+        //     let valTd = document.createElement("td")
+        //     let values = Math.round(Math.random()*200)
+        //     valTd.innerHTML = values
+
+        //     tr.append(nameTD, imgTD,valTd);
+
+        //     some.appendChild(tr);
+
+
+        // });
+
+    // let data = ["first","second","third","fourth","fiveth"]
+    // data.forEach((names)=>{
+    //     let b = document.createElement("li");
+    //     b.innerHTML = names;
+    //     ali.appendChild(b)
+    // })
+</script>
+</html>
